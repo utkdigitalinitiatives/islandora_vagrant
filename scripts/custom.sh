@@ -10,8 +10,8 @@ fi
 # run all shell scripts in scripts/custom_scripts/
 for SCRIPT in ${SHARED_DIR}/scripts/custom_scripts/*.sh
 do
-	if [ -f $SCRIPT ]; then
+	if [ -f "$SCRIPT" ]; then
 		echo "Running custom scripts"
-			source $SCRIPT
+			source "$SCRIPT"
 	fi
 done
