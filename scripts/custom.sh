@@ -1,11 +1,17 @@
 #!/bin/bash
 
-echo "Running custom scripts"
-
 SHARED_DIR=$1
 
 if [ -f "$SHARED_DIR/configs/variables" ]; then
+	# shellcheck source=/dev/null
 	. "$SHARED_DIR"/configs/variables
 fi
 
-source "$SHARED_DIR"/scripts/custom_scripts/update_basic_solr_config.sh
+# run all shell scripts in scripts/custom_scripts/
+for SCRIPT in ${SHARED_DIR}/scripts/custom_scripts/*.sh
+do
+	if [ -f $SCRIPT ]; then
+		echo "Running custom scripts"
+			source $SCRIPT
+	fi
+done
