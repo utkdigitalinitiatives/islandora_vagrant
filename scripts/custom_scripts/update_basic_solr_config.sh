@@ -1,10 +1,23 @@
 #!/bin/bash
 
-echo "Updating Solr"
+FGS_TARGET="/var/lib/tomcat7/webapps/fedoragsearch/WEB-INF/classes/fgsconfigFinal/index/FgsIndex/"
 
-sleep 2
+echo "Cloning basic-solr-config"
+git clone -b 4.x --single-branch https://github.com/utkdigitalinitiatives/basic-solr-config/ 4-x-utk
 
 echo "Updating Fedora GSearch"
+# fix file paths in the new files
+sed -i 's|/vhosts/fedora/solr|/usr/local/solr|g' 4-x-utk/index.properties
+sed -i 's|/vhosts/fedora/tomcat|/var/lib/tomcat7|g' 4-x-utk/foxmlToSolr.xslt
+sed -i 's|/vhosts/fedora/tomcat|/var/lib/tomcat7|g' 4-x-utk/islandora_transforms/*.xslt
+# copy the appropriate fedoragsearch files to fedoragsearch
+sudo cp 4-x-utk/index.properties $FGS_TARGET
+sudo cp 4-x-utk/foxmlToSolr.xslt $FGS_TARGET
+sudo cp -a 4-x-utk/islandora_transforms $FGS_TARGET
+# update file/directory ownership
+sudo chown -R tomcat7:tomcat7 $FGS_TARGET
+
+echo "Updating Solr"
 
 sleep 2
 
