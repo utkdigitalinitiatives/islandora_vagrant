@@ -4,7 +4,7 @@ echo "Running custom scripts"
 
 SHARED_DIR=$1
 
-if [ -f "SHARED_DIR/configs/variables" ]; then
+if [ -f "$SHARED_DIR/configs/variables" ]; then
 	. "$SHARED_DIR"/configs/variables
 fi
 
