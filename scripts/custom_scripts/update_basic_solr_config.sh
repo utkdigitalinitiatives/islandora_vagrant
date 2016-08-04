@@ -18,7 +18,7 @@ sudo cp -a 4-x-utk/islandora_transforms $FGS_TARGET
 sudo chown -R tomcat7:tomcat7 $FGS_TARGET
 
 echo "Updating Solr"
-
-sleep 2
-
-echo "Done"
+# copy the appropriate Solr config files to Solr
+sudo cp 4-x-utk/solr-conf/ /usr/local/solr/collection1/conf/
+# update file/directory ownership
+sudo chown -R tomcat7:tomcat7 /usr/local/solr/collection1/conf
