@@ -10,8 +10,11 @@ N.B. This virtual machine **should not** be used in production.
 ## Requirements
 
 1. [VirtualBox](https://www.virtualbox.org/)
+  * Be sure to install a version of VirtualBox that [is compatible with Vagrant](https://www.vagrantup.com/docs/virtualbox/)
 2. [Vagrant](http://www.vagrantup.com)
 3. [git](https://git-scm.com/)
+
+Note that virtualization must be enabled in the host machine's BIOS settings.
 
 ## Variables
 
@@ -41,6 +44,8 @@ export ISLANDORA_VAGRANT_FORWARD="FALSE"
 
 ## Connect
 
+Note: The supplied links apply only to this local vagrant system. They could vary in other installations. 
+
 You can connect to the machine via the browser at [http://localhost:8000](http://localhost:8000).
 
 The default Drupal login details are:
@@ -51,17 +56,17 @@ MySQL:
   - username: root
   - password: islandora
 
-Tomcat Manager:
+[Tomcat Manager:](http://localhost:8080/manager)
   - username: islandora
   - password: islandora
 
-Fedora:
+[Fedora:](http://localhost:8080/fedora/) ([Fedora Admin](http://localhost:8080/fedora/admin) | [Fedora Risearch](http://localhost:8080/fedora/risearch) | [Fedora Services](http://localhost:8080/fedora/services/))
   - username: fedoraAdmin
   - password: fedoraAdmin
 
-GSearch:
-  - username: fgsAdmin
-  - password: fgsAdmin
+[GSearch:](http://localhost:8080/fedoragsearch/rest)
+  - username: fedoraAdmin
+  - password: fedoraAdmin
 
 ssh, scp, rsync:
   - username: vagrant
@@ -71,25 +76,25 @@ ssh, scp, rsync:
     - `scp -P 2222 somefile.txt vagrant@localhost:/destination/path`
     - `rsync --rsh='ssh -p2222' -av somedir vagrant@localhost:/tmp`
 
+
 ## Environment
 
 - Ubuntu 14.04
-- Drupal 7.43
-- MySQL 5.5.47
+- Drupal 7.44
+- MySQL 5.5.49
 - Apache 2.4.7
 - Tomcat 7.0.55.0
 - Solr 4.2.0
 - Fedora 3.8.1
 - GSearch HEAD
-- PHP 5.5.9-1ubuntu4.14
+- PHP 5.5.9-1ubuntu4.17
 - Java 8 (Oracle)
 - FITS 0.10.1
-- drush 5.10.0
+- drush 6.3.0
 - jQuery 1.10.2
 
 ## Maintainers
 
-* [Nick Ruest](https://github.com/ruebot)
 * [Luke Taylor](https://github.com/lutaylor)
 * [Don Richards](https://github.com/donrichards)
 
