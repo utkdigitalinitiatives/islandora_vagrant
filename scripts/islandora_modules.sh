@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "****************__BEGIN__ islandora_vagrant_scripts_islandora_modules.sh******"
 echo "Installing all Islandora Foundation modules"
 
 SHARED_DIR=$1
@@ -101,3 +102,5 @@ drush eval "variable_set('islandora_ocr_tesseract', '/usr/bin/tesseract')"
 drush eval "variable_set('islandora_batch_java', '/usr/bin/java')"
 drush eval "variable_set('image_toolkit', 'imagemagick')"
 drush eval "variable_set('imagemagick_convert', '/usr/bin/convert')"
+
+echo "****************___END___ islandora_vagrant_scripts_islandora_modules.sh******"

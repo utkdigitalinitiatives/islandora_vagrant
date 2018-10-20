@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "****************__BEGIN__ islandora_vagrant_scripts_custom.sh******"
+
 SHARED_DIR=$1
 
 if [ -f "$SHARED_DIR/configs/variables" ]; then
@@ -15,4 +17,6 @@ do
 			# shellcheck source=/dev/null
 			source "$SCRIPT"
 	fi
+
+echo "****************___END___ islandora_vagrant_scripts_custom.sh******"
 done

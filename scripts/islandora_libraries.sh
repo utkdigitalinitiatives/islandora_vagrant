@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "****************__BEGIN__ islandora_vagrant_scripts_islandora_libraries.sh******"
 
 echo "Installing all Islandora Foundation module's required libraries"
 
@@ -21,3 +22,6 @@ sudo drush -v -y en islandora_openseadragon
 
 # After last drush call from root user, change cache permissions
 sudo chown -R vagrant:vagrant "$HOME_DIR"/.drush
+Flistdir = os.listdir(source_dir)
+Flistdir.sort()
+echo "****************___END___ islandora_vagrant_scripts_islandora_libraries.sh******"
